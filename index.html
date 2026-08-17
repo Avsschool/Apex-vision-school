@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="APEX VISION SCHOOLS - Excellence in education, character and leadership.">
+  <title>APEX VISION SCHOOLS</title>
+  <style>
+    :root{
+      --navy:#061b45;
+      --blue:#087dcc;
+      --sky:#eaf6ff;
+      --gold:#f5b942;
+      --white:#fff;
+      --dark:#172033;
+      --muted:#60708a;
+      --border:#dbe5ef;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.6;
+      color:var(--dark);
+      background:#fff;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      background:var(--navy);
+      color:#fff;
+      padding:9px 5%;
+      font-size:14px;
+    }
+    .topbar-inner{
+      max-width:1200px;margin:auto;display:flex;justify-content:space-between;
+      gap:15px;flex-wrap:wrap
+    }
+    header{
+      background:#fff;
+      position:sticky;top:0;z-index:1000;
+      box-shadow:0 2px 12px rgba(0,0,0,.08)
+    }
+    .nav{
+      max-width:1200px;margin:auto;padding:15px 5%;
+      display:flex;align-items:center;justify-content:space-between;gap:20px
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:58px;height:58px;border-radius:50%;
+      background:linear-gradient(135deg,var(--blue),var(--navy));
+      color:#fff;display:grid;place-items:center;
+      font-weight:800;font-size:17px;border:4px solid var(--gold)
+    }
+    .brand h1{font-size:20px;color:var(--navy);line-height:1.1}
+    .brand span{font-size:12px;color:var(--blue);font-weight:700}
+    nav ul{list-style:none;display:flex;gap:24px;align-items:center}
+    nav a{font-weight:700;color:var(--navy)}
+    nav a:hover{color:var(--blue)}
+    .menu-btn{display:none;background:var(--navy);color:#fff;border:0;padding:10px 13px;border-radius:7px;font-size:20px}
+    .hero{
+      min-height:570px;
+      display:grid;place-items:center;text-align:center;color:#fff;
+      background:
+        linear-gradient(rgba(6,27,69,.82),rgba(8,125,204,.72)),
+        radial-gradient(circle at 20% 20%,#2c9be8 0 8%,transparent 9%),
+        linear-gradient(135deg,#061b45,#087dcc);
+      padding:80px 5%;
+    }
+    .hero-content{max-width:850px}
+    .hero h2{font-size:clamp(38px,7vw,72px);line-height:1.05;margin-bottom:20px}
+    .hero p{font-size:clamp(17px,2.5vw,23px);max-width:700px;margin:0 auto 30px}
+    .buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:13px 23px;border-radius:8px;font-weight:800;
+      transition:.2s
+    }
+    .btn-primary{background:var(--gold);color:var(--navy)}
+    .btn-secondary{border:2px solid #fff;color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    section{padding:75px 5%}
+    .container{max-width:1200px;margin:auto}
+    .section-title{text-align:center;color:var(--navy);font-size:36px;margin-bottom:12px}
+    .section-subtitle{text-align:center;color:var(--muted);max-width:700px;margin:0 auto 40px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{
+      background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px;
+      box-shadow:0 8px 25px rgba(6,27,69,.07)
+    }
+    .card .icon{font-size:38px;margin-bottom:10px}
+    .card h3{color:var(--navy);margin-bottom:8px}
+    .about{background:var(--sky)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .about-box{
+      background:linear-gradient(135deg,var(--navy),var(--blue));
+      color:#fff;border-radius:18px;padding:45px
+    }
+    .about-box strong{font-size:50px;display:block;color:var(--gold)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:28px}
+    .stat{text-align:center;padding:22px;background:#fff;border-radius:12px}
+    .stat strong{display:block;font-size:28px;color:var(--blue)}
+    .programs{background:#f8fbff}
+    .contact{background:var(--navy);color:#fff}
+    .contact .section-title{color:#fff}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .contact-card{padding:30px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.06)}
+    .contact-card h3{color:var(--gold);margin-bottom:10px}
+    footer{background:#04122e;color:#cbd7ea;text-align:center;padding:25px 5%;font-size:14px}
+    @media(max-width:800px){
+      nav ul{
+        display:none;position:absolute;left:0;right:0;top:88px;background:#fff;
+        flex-direction:column;padding:20px;box-shadow:0 8px 15px rgba(0,0,0,.1)
+      }
+      nav ul.show{display:flex}
+      .menu-btn{display:block}
+      .cards,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .hero{min-height:520px}
+    }
+    @media(max-width:430px){
+      .brand h1{font-size:16px}.brand span{font-size:10px}
+      .logo{width:48px;height:48px;font-size:14px}
+      .stats{grid-template-columns:1fr 1fr}
+      section{padding:55px 5%}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Welcome to APEX VISION SCHOOLS</span>
+      <span>Excellence • Character • Leadership</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav">
+      <a href="#home" class="brand">
+        <div class="logo">AVS</div>
+        <div>
+          <h1>APEX VISION SCHOOLS</h1>
+          <span>BUILDING FUTURES</span>
+        </div>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+      <nav>
+        <ul id="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#admission">Admission</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h2>Shaping Minds.<br>Building Futures.</h2>
+        <p>
+          Welcome to APEX VISION SCHOOLS, where every learner is encouraged
+          to discover their potential, develop strong character and prepare
+          confidently for the future.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#admission">Apply for Admission</a>
+          <a class="btn btn-secondary" href="#about">Discover Our School</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About APEX VISION</h2>
+        <p class="section-subtitle">A supportive learning community committed to academic excellence and responsible leadership.</p>
+        <div class="about-grid">
+          <div>
+            <h3 style="color:#061b45;font-size:28px;margin-bottom:15px">Education with a Vision</h3>
+            <p>
+              At APEX VISION SCHOOLS, we believe education goes beyond the classroom.
+              We provide a balanced environment where students can grow academically,
+              socially, creatively and morally.
+            </p>
+            <div class="stats">
+              <div class="stat"><strong>100%</strong>Commitment</div>
+              <div class="stat"><strong>STEM</strong>Learning</div>
+              <div class="stat"><strong>Arts</strong>& Culture</div>
+              <div class="stat"><strong>Sports</strong>Development</div>
+            </div>
+          </div>
+          <div class="about-box">
+            <strong>Our Mission</strong>
+            <p>
+              To nurture confident, knowledgeable and responsible young people
+              through quality teaching, modern learning and strong values.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs" class="programs">
+      <div class="container">
+        <h2 class="section-title">Our Programs</h2>
+        <p class="section-subtitle">Learning opportunities designed to help every student thrive.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">📚</div>
+            <h3>Academic Excellence</h3>
+            <p>Strong foundations in core subjects with engaging lessons and dedicated teachers.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔬</div>
+            <h3>STEM & Technology</h3>
+            <p>Practical science, technology, engineering and mathematics learning for tomorrow's world.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🎨</div>
+            <h3>Arts & Creativity</h3>
+            <p>Creative activities that encourage imagination, confidence and self-expression.</p>
+          </article>
+          <article class="card">
+            <div class="icon">⚽</div>
+            <h3>Sports</h3>
+            <p>Physical activities that promote teamwork, discipline, fitness and healthy competition.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🌱</div>
+            <h3>Character Development</h3>
+            <p>Values-based education that develops respect, responsibility and leadership.</p>
+          </article>
+          <article class="card">
+            <div class="icon">💻</div>
+            <h3>Digital Learning</h3>
+            <p>Technology-supported learning that prepares students for a rapidly changing world.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="admission">
+      <div class="container">
+        <h2 class="section-title">Admissions</h2>
+        <p class="section-subtitle">
+          Give your child the opportunity to learn, grow and achieve at APEX VISION SCHOOLS.
+        </p>
+        <div class="card" style="max-width:800px;margin:auto;text-align:center">
+          <h3>Start Your Admission Journey</h3>
+          <p style="margin:12px 0 22px">
+            Contact the school for current admission requirements, available classes,
+            fees and enrolment dates.
+          </p>
+          <a class="btn btn-primary" style="background:#087dcc;color:#fff" href="#contact">Contact the School</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle" style="color:#d9e5f5">We would be happy to hear from you.</p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>School Office</h3>
+            <p>APEX VISION SCHOOLS</p>
+            <p>📍 Add your school address here</p>
+            <p>📞 Add your phone number here</p>
+            <p>✉️ Add your email address here</p>
+          </div>
+          <div class="contact-card">
+            <h3>Office Hours</h3>
+            <p>Monday – Friday</p>
+            <p>8:00 AM – 4:00 PM</p>
+            <br>
+            <p>For admissions and enquiries, please contact the school office.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> APEX VISION SCHOOLS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById("menu").classList.toggle("show");
+    }
+    document.querySelectorAll("#menu a").forEach(function(link){
+      link.addEventListener("click", function(){
+        document.getElementById("menu").classList.remove("show");
+      });
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
